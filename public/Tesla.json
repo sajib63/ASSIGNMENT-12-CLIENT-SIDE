@@ -8,6 +8,7 @@
       "age": 3,
       "time":"10:00AM",
       "seller_name": "Gwen Wilkinson",
+      "verification":true,
       "product_name": "Tesla Model 3",
       "phone": "+880 (854) 406-2815",
       "address": "471 Ralph Avenue, Islandia, Rhode Island, 9874"

@@ -1,8 +1,9 @@
 import React from 'react';
+import { FaCheck } from "react-icons/fa";
 
 const AllCarsCard = ({ cars }) => {
 
-    const { purchase_Price, sell_price, picture, age, time, seller_name, product_name, phone, address } = cars;
+    const { purchase_Price, sell_price, picture, age, time, seller_name, product_name, phone, address , verification} = cars;
     return (
         <div className='p-4'>
             <div className="card  bg-base-100 shadow-xl px-4 lg:px-0">
@@ -13,7 +14,13 @@ const AllCarsCard = ({ cars }) => {
                         
                     </h2>
                     <p>Use: {age} Month</p>
-                    <p >Seller: {seller_name}</p>
+                  
+                    <p className='inline'>Seller: {seller_name} {verification?   <span><FaCheck className='inline-block text-primary'></FaCheck></span>: ''
+                    
+                    
+                    }</p>
+                   
+                   
                     <p >Purchase-Price: {purchase_Price}</p>
                     <p >Sell-Price: {sell_price}</p>
                     <p >Address: {address}</p>
