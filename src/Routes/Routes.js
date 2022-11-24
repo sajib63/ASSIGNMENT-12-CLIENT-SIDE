@@ -1,7 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 import Footer from "../Component/Footer/Footer";
+import Audi from "../Component/Home/AllCars/Audi";
+import Bmw from "../Component/Home/AllCars/Bmw";
+import Hyundai from "../Component/Home/AllCars/Hyundai";
+import Lamborghini from "../Component/Home/AllCars/Lamborghini";
+import Mercedes from "../Component/Home/AllCars/Mercedes";
+import Tesla from "../Component/Home/AllCars/Tesla";
 import MainHome from "../Component/Home/MainHome";
-import Tesla from "../Component/Home/Tesla";
 import Navbar from "../Component/Navbar/Navbar";
 import Main from "../Layout/Main";
 
@@ -25,6 +30,26 @@ export const router=createBrowserRouter([
             {
                 path:'/tesla',
                 element:<Tesla></Tesla>
+            },
+            {
+                path:'/audi',
+                element:<Audi></Audi>
+            },
+            {
+                path:'/bmw',
+                element:<Bmw></Bmw>
+            },
+            {
+                path:'/hyundai',
+                element:<Hyundai></Hyundai>
+            },
+            {
+                path:'/mercedes',
+                element:<Mercedes></Mercedes>
+            },
+            {
+                path:'/lamborghini',
+                element:<Lamborghini></Lamborghini>
             }
         ]
     }

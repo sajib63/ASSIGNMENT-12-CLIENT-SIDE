@@ -10,7 +10,7 @@ import { FaCarSide } from 'react-icons/fa';
 
 const AllProducts = () => {
     return (
-        <div className="px-4  mx-auto sm:max-w-xl md:max-w-full lg:max-w-full ">
+        <div className="px-4  mx-auto sm:max-w-xl md:max-w-full lg:max-w-full my-40">
         <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
           <div>
             <p className="inline-block px-3 py-px mb-4 text-3xl font-semibold tracking-wider text-neutral uppercase rounded-full bg-teal-accent-400">
@@ -25,7 +25,7 @@ const AllProducts = () => {
         <div className="grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
          
 
-            <Link>
+            <Link to='/tesla'>
             
             <div>
             <div className="relative overflow-hidden transition duration-300 transform rounded shadow-lg lg:hover:-translate-y-2 hover:shadow-2xl">
@@ -58,7 +58,8 @@ const AllProducts = () => {
             </div>
           </div>
             </Link>
-            <Link>
+            
+            <Link to='/audi'>
             
             <div>
             <div className="relative overflow-hidden transition duration-300 transform rounded shadow-lg lg:hover:-translate-y-2 hover:shadow-2xl">
@@ -91,7 +92,7 @@ const AllProducts = () => {
             </div>
           </div>
             </Link>
-            <Link>
+            <Link to='/bmw'>
             
             <div>
             <div className="relative overflow-hidden transition duration-300 transform rounded shadow-lg lg:hover:-translate-y-2 hover:shadow-2xl">
@@ -124,7 +125,7 @@ const AllProducts = () => {
             </div>
           </div>
             </Link>
-            <Link>
+            <Link to='/hyundai'>
             
             <div>
             <div className="relative overflow-hidden transition duration-300 transform rounded shadow-lg lg:hover:-translate-y-2 hover:shadow-2xl">
@@ -157,7 +158,7 @@ const AllProducts = () => {
             </div>
           </div>
             </Link>
-            <Link>
+            <Link to='/mercedes'>
             
             <div>
             <div className="relative overflow-hidden transition duration-300 transform rounded shadow-lg lg:hover:-translate-y-2 hover:shadow-2xl">
@@ -190,7 +191,7 @@ const AllProducts = () => {
             </div>
           </div>
             </Link>
-            <Link>
+            <Link to='/lamborghini'>
             
             <div>
             <div className="relative overflow-hidden transition duration-300 transform rounded shadow-lg lg:hover:-translate-y-2 hover:shadow-2xl">
