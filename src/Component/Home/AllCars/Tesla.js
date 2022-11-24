@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import AllCarsCard from './AllCarsCard';
 
 const Tesla = () => {
-    const [teslaCars, setTeslaCars]=useState('');
+    const [teslaCars, setTeslaCars]=useState([]);
     useEffect(()=>{
         fetch('tesla.json')
         .then(res=> res.json())
@@ -10,7 +11,12 @@ const Tesla = () => {
     return (
         <div>
             <h1>{teslaCars.length}</h1>
-            <h1>hello i'm teslaa</h1>
+           
+           <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+            {
+                teslaCars?.map(cars=> <AllCarsCard key={cars._id} cars={cars}></AllCarsCard>)
+            }
+           </div>
         </div>
     );
 };
