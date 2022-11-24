@@ -12,7 +12,11 @@ const MainHome = () => {
             <div>
                <Carousel></Carousel>
             </div>
+
+            <div className='my-12'>
             <AllProducts></AllProducts>
+
+            </div>
         </div>
     );
 };

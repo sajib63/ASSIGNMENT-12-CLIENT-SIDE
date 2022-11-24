@@ -12,11 +12,12 @@ import "./carousel.css";
 import img from '../../../Assets/slider/1.jpg'
 import img2 from '../../../Assets/slider/2.jpg'
 import img3 from '../../../Assets/slider/3.jpg'
-import img4 from '../../../Assets/slider/4.jpg'
+
 import img5 from '../../../Assets/slider/5.jpg'
 import img6 from '../../../Assets/slider/6.jpg'
-import img7 from '../../../Assets/slider/7.jpg'
-import img8 from '../../../Assets/slider/8.jpg'
+
+
+
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper";
@@ -38,8 +39,8 @@ export default function App() {
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
       >
-        <SwiperSlide>
-            <img src={img} className='w-1/3' alt="" />
+        <SwiperSlide >
+            <img  src={img} className="h-96" alt="" />
         </SwiperSlide>
         <SwiperSlide>
             <img src={img2} alt="" />
@@ -47,21 +48,15 @@ export default function App() {
         <SwiperSlide>
             <img src={img3} alt="" />
         </SwiperSlide>
-        <SwiperSlide>
-            <img src={img4} alt="" />
-        </SwiperSlide>
+      
         <SwiperSlide>
             <img src={img5} alt="" />
         </SwiperSlide>
+      
         <SwiperSlide>
             <img src={img6} alt="" />
         </SwiperSlide>
-        <SwiperSlide>
-            <img src={img7} alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-            <img src={img8} alt="" />
-        </SwiperSlide>
+       
       
       </Swiper>
     </>
