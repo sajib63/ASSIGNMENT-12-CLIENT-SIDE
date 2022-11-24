@@ -6,15 +6,15 @@ const Navbar = () => {
 
     const navItems = <>
         <li><Link to='/' className=' font-semibold  hover:bg-primary rounded hover:text-white '>Home</Link></li>
-        <li><Link to='/' className=' font-semibold  hover:bg-primary rounded hover:text-white '>Home</Link></li>
-        <li><Link to='/' className=' font-semibold  hover:bg-primary rounded hover:text-white '>Home</Link></li>
-        <li><Link to='/' className=' font-semibold  hover:bg-primary rounded hover:text-white '>Home</Link></li>
-        <li><Link to='/' className=' font-semibold  hover:bg-primary rounded hover:text-white '>Home</Link></li>
+        <li><Link to='/' className=' font-semibold  hover:bg-primary rounded hover:text-white '>About</Link></li>
+        <li><Link to='/' className=' font-semibold  hover:bg-primary rounded hover:text-white '>Product</Link></li>
+        <li><Link to='/' className=' font-semibold  hover:bg-primary rounded hover:text-white '>Blog</Link></li>
+       
 
 
     </>
     return (
-        <div className="navbar  sticky bg-base-100 top-0">
+        <div className="navbar  sticky bg-base-100 top-0 z-50">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">

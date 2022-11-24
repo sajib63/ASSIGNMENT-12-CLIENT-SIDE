@@ -8,12 +8,12 @@ module.exports = {
       {
         carReseller: {
 
-          primary: "#f87171",
+          primary: "#991b1b",
 
           secondary: "#fecaca",
           accent: "#fef2f2",
           
-          neutral: "#334155",
+          neutral: "#ef4444",
                    
           "base-100": "#FAF7F5",
         },

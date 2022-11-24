@@ -6,14 +6,17 @@ import bmw from '../../Assets/image/bmw.jpg'
 import hyundai from '../../Assets/image/hyundai.jpg'
 import Lamborghini from '../../Assets/image/lamborghini.jpg'
 import mercedese from '../../Assets/image/mercedes.jpg'
+import { FaCarSide } from 'react-icons/fa';
 
 const AllProducts = () => {
     return (
         <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
         <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
           <div>
-            <p className="inline-block px-3 py-px mb-4 text-3xl font-semibold tracking-wider text-primary uppercase rounded-full bg-teal-accent-400">
-             Our Products
+            <p className="inline-block px-3 py-px mb-4 text-3xl font-semibold tracking-wider text-neutral uppercase rounded-full bg-teal-accent-400">
+             <div className='flex justify-center items-center gap-1'>
+             Our <span><FaCarSide className='text-primary'></FaCarSide></span> Products
+             </div>
             </p>
           </div>
          
@@ -32,7 +35,7 @@ const AllProducts = () => {
                 alt="Person"
               />
               <div className="absolute inset-0 flex flex-col justify-center px-5 py-4 text-center transition-opacity duration-300 bg-black bg-opacity-75 opacity-0 hover:opacity-100">
-                <p className="mb-1 text-lg font-bold text-primary">
+                <p className="mb-1 text-lg font-bold text-neutral">
                Tesla
                 </p>
             
@@ -65,7 +68,7 @@ const AllProducts = () => {
                 alt="Person"
               />
               <div className="absolute inset-0 flex flex-col justify-center px-5 py-4 text-center transition-opacity duration-300 bg-black bg-opacity-75 opacity-0 hover:opacity-100">
-                <p className="mb-1 text-lg font-bold text-primary">
+                <p className="mb-1 text-lg font-bold text-neutral">
                Audi
                 </p>
             
@@ -98,7 +101,7 @@ const AllProducts = () => {
                 alt="Person"
               />
               <div className="absolute inset-0 flex flex-col justify-center px-5 py-4 text-center transition-opacity duration-300 bg-black bg-opacity-75 opacity-0 hover:opacity-100">
-                <p className="mb-1 text-lg font-bold text-primary">
+                <p className="mb-1 text-lg font-bold text-neutral">
                BMW
                 </p>
             
@@ -131,7 +134,7 @@ const AllProducts = () => {
                 alt="Person"
               />
               <div className="absolute inset-0 flex flex-col justify-center px-5 py-4 text-center transition-opacity duration-300 bg-black bg-opacity-75 opacity-0 hover:opacity-100">
-                <p className="mb-1 text-lg font-bold text-primary">
+                <p className="mb-1 text-lg font-bold text-neutral">
                Hyundai
                 </p>
             
@@ -164,7 +167,7 @@ const AllProducts = () => {
                 alt="Person"
               />
               <div className="absolute inset-0 flex flex-col justify-center px-5 py-4 text-center transition-opacity duration-300 bg-black bg-opacity-75 opacity-0 hover:opacity-100">
-                <p className="mb-1 text-lg font-bold text-primary">
+                <p className="mb-1 text-lg font-bold text-neutral">
                Mercedes
                 </p>
             
@@ -197,7 +200,7 @@ const AllProducts = () => {
                 alt="Person"
               />
               <div className="absolute inset-0 flex flex-col justify-center px-5 py-4 text-center transition-opacity duration-300 bg-black bg-opacity-75 opacity-0 hover:opacity-100">
-                <p className="mb-1 text-lg font-bold text-primary">
+                <p className="mb-1 text-lg font-bold text-neutral">
                Lamborghini
                 </p>
             
