@@ -5,17 +5,22 @@ const AllCarsCard = ({ cars }) => {
     const { purchase_Price, sell_price, picture, age, time, seller_name, product_name, phone, address } = cars;
     return (
         <div className='p-4'>
-            <div className="card w-96 bg-base-100 shadow-xl">
-                <figure><img src={picture} alt="Shoes" /></figure>
+            <div className="card  bg-base-100 shadow-xl px-4 lg:px-0">
+                <figure><img src={picture} className="h-full md:h-[250px] lg:h-[300px] lg:w-full" alt="Shoes" /></figure>
                 <div className="card-body">
-                    <h2 className="card-title">
-                        Shoes!
-                        <div className="badge badge-secondary">NEW</div>
+                    <h2 className=" text-sm lg:text-2xl">
+                        {product_name}
+                        
                     </h2>
-                    <p>If a dog chews shoes whose shoes does he choose?</p>
+                    <p>Use: {age} Month</p>
+                    <p >Seller: {seller_name}</p>
+                    <p >Purchase-Price: {purchase_Price}</p>
+                    <p >Sell-Price: {sell_price}</p>
+                    <p >Address: {address}</p>
+                    <p >Phone: {phone}</p>
+                    <p >Post: {time}</p>
                     <div className="card-actions justify-end">
-                        <div className="badge badge-outline">Fashion</div>
-                        <div className="badge badge-outline">Products</div>
+                        <button className='btn bg-primary'>Book now</button>
                     </div>
                 </div>
             </div>
