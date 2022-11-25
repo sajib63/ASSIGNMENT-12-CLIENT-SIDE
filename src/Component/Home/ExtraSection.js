@@ -2,7 +2,7 @@ import React from 'react';
 
 const ExtraSection = () => {
     return (
-        <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-full ">
+        <div className="px-4 py-16 mx-auto  ">
         <div className="grid gap-6 row-gap-10 lg:grid-cols-2">
           <div className="lg:py-6 lg:pr-16">
             <div className="flex">

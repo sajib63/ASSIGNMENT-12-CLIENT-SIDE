@@ -40,7 +40,7 @@ export default function App() {
         className="mySwiper"
       >
         <SwiperSlide >
-            <img  src={img} className="h-96" alt="" />
+            <img  src={img} className="" alt="" />
         </SwiperSlide>
         <SwiperSlide>
             <img src={img2} alt="" />

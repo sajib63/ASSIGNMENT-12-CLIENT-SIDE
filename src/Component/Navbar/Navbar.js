@@ -37,7 +37,7 @@ const Navbar = () => {
                     {navItems}
                 </ul>
             </div>
-            <div className="navbar-end">
+            <div className="navbar-end ">
                 {
                     user?.uid ? <>
                        

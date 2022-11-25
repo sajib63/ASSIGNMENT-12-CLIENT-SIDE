@@ -30,13 +30,13 @@ const Register = () => {
         })
             .then(res => res.json())
             .then(imageData => {
-                console.log(imageData);
+                
                 const imageUrl=imageData.data.display_url
                 createUser(email, password)
                 .then(result=>{
                     updateUserProfile(name, imageUrl)
                     toast.success('successfully created user')
-                    console.log(result);
+                    saveUser(name, email , position)
                     form.reset();
 
                 })
@@ -53,18 +53,42 @@ const Register = () => {
 
     const googleLoginUser=()=>{
         googleLogin()
-        .then(()=>{
+        .then(data=>{
+            saveUser(data.user.displayName, data.user.email)
             toast.success('successfully created user')
         })
         .catch(error=>{
             console.log(error);
         })
     }
+
+
+    const saveUser=(name, email, position)=>{
+        const user = {
+            name, email, position
+        };
+        fetch('http://localhost:5000/seller',{
+            method:'POST',
+            headers:{
+                'content-type':'application/json'
+            },
+            body:JSON.stringify(user)
+        })
+        .then(res=> res.json())
+        .then(data=>{
+            toast.success('successfully added on db')
+            console.log(data);
+
+        })
+        .catch(error=>{
+            console.error(error);
+        })
+    }
     return (
         <div className="hero min-h-screen bg-white">
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="text-center lg:text-left">
-                    <img src={register} alt="" />
+                    <img src={register} className="" alt="" />
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl ">
                     <form onSubmit={registerSubmit} className="card-body">
@@ -122,6 +146,7 @@ const Register = () => {
                     <div className=' text-center'>
 
                         <button onClick={googleLoginUser} className='btn btn-primary my-2 w-80'>Google LogIn</button>
+
                         <p className='my-2'>Already have an account Please  <Link to='/login' className='text-primary'>Login</Link>.</p>
                     </div>
 
