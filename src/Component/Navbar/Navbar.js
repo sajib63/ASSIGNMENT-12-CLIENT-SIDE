@@ -4,7 +4,7 @@ import { FaCarSide } from 'react-icons/fa';
 import { AuthContext } from '../../UserContex/UseContext';
 
 const Navbar = () => {
-    const {user}=useContext(AuthContext)
+    const {user, logout}=useContext(AuthContext)
 
     const navItems = <>
         <li><Link to='/' className=' font-semibold  hover:bg-primary rounded hover:text-white '>Home</Link></li>
@@ -45,7 +45,7 @@ const Navbar = () => {
                 <Link to='/login' className='p-3 mx-4 font-semibold  bg-primary rounded text-white '>Login</Link>
 
 
-                <Link  className='p-3  font-semibold bg-primary rounded text-white '>Logout</Link>
+                <Link onClick={logout}  className='p-3  font-semibold bg-primary rounded text-white '>Logout</Link>
             </div>
         </div>
     );

@@ -30,8 +30,9 @@ const Login = () => {
               </div>
             </form>
 
-           <div className='my-5 text-center'>
-           <p>New To Car-Reseller <Link to='/register' className='text-primary'>Register</Link></p>
+           <div className=' text-center'>
+           <button className='btn btn-primary my-2 w-80'>Google LogIn</button>
+           <p className='my-2'>New To Car-Reseller <Link to='/register' className='text-primary'>Register</Link></p>
            </div>
           </div>
         </div>

@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import register from '../Assets/animation/register.gif'
+import { AuthContext } from '../UserContex/UseContext';
+import toast from 'react-hot-toast';
 
 const Register = () => {
+    const { createUser,updateUserProfile } = useContext(AuthContext)
 
     const registerSubmit = event => {
 
@@ -10,11 +13,39 @@ const Register = () => {
 
         const form = event.target;
         const name = form.name.value;
-        const photo = form.photo.value;
+        
         const email = form.email.value;
         const position = form.select.value;
         const password = form.password.value;
-        console.log(name, email, password,position, photo);
+        const image = form.image.files[0]
+        
+       
+        const formData = new FormData()
+        formData.append('image', image)
+        const url =  "https://api.imgbb.com/1/upload?expiration=600&key=f2c33e31b627f916630ff6b4299e8ca3"
+
+        fetch(url, {
+            method: 'POST',
+            body: formData,
+        })
+            .then(res => res.json())
+            .then(imageData => {
+                const imageUrl=imageData.data.display_url
+                createUser(email, password)
+                .then(result=>{
+                    updateUserProfile(name, imageUrl)
+                    toast.success('successfully created user')
+                    console.log(result);
+                    form.reset();
+
+                })
+                .catch(error=>{
+                    console.log(error);
+                })
+                
+
+            })
+         .catch(err => console.error(err))
 
     }
     return (
@@ -23,8 +54,8 @@ const Register = () => {
                 <div className="text-center lg:text-left">
                     <img src={register} alt="" />
                 </div>
-                <form onSubmit={registerSubmit} className="card flex-shrink-0 w-full max-w-sm shadow-2xl ">
-                    <div className="card-body">
+                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl ">
+                    <form onSubmit={registerSubmit} className="card-body">
                         <h1 className="text-2xl text-center text-primary font-semibold">Register</h1>
 
                         <div className="form-control">
@@ -45,7 +76,7 @@ const Register = () => {
                             <label className="label">
                                 <span className="label-text">Your Photo</span>
                             </label>
-                            <input type="file" name='photo' placeholder="photo" className="input input-bordered" required />
+                            <input type="file" name='image' placeholder="photo" className="input input-bordered" required />
                         </div>
 
 
@@ -53,14 +84,14 @@ const Register = () => {
                         <div className="form-control w-full max-w-xs">
                             <label className="label">
                                 <span className="label-text">Select your position</span>
-                             
+
                             </label>
                             <select name='select' className="select select-bordered">
                                 <option>Seller</option>
                                 <option>Buyer</option>
-                               
+
                             </select>
-                           
+
                         </div>
 
 
@@ -75,12 +106,17 @@ const Register = () => {
 
                         <input type="submit" value="Register" className='btn btn-primary mt-5' />
 
+                    </form>
+                    <div className=' text-center'>
+
+                        <button className='btn btn-primary my-2 w-80'>Google LogIn</button>
+                        <p className='my-2'>Already have an account Please  <Link to='/login' className='text-primary'>Login</Link>.</p>
                     </div>
 
-                    <div className='my-5 text-center'>
-                        <p>Already have an account Please  <Link to='/login' className='text-primary'>Login</Link>.</p>
-                    </div>
-                </form>
+                </div>
+
+
+
             </div>
         </div>
     );
