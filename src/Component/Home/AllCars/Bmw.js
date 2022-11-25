@@ -1,13 +1,19 @@
+import { useQuery } from '@tanstack/react-query';
 import React, { useEffect, useState } from 'react';
 import AllCarsCard from './AllCarsCard';
 
 const Bmw = () => {
-    const [bmwCars, setBmwCars]=useState([]);
-    useEffect(()=>{
-        fetch('Bmw.json')
-        .then(res=> res.json())
-        .then(data=> setBmwCars(data))
-    },[])
+ 
+
+    const {data: bmwCars=[], isLoading}=useQuery({
+        queryKey:['hyundai'],
+        queryFn: async ()=>{
+            const res=await fetch('http://localhost:5000/bmw')
+            const data =await res.json()
+            return data
+        }
+
+    })
     return (
         <div>
              
