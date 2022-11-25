@@ -1,11 +1,19 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import register from '../Assets/animation/register.gif'
 import { AuthContext } from '../UserContex/UseContext';
 import toast from 'react-hot-toast';
+import UseToken from '../Hooks/UseToken';
 
 const Register = () => {
-    const { createUser,updateUserProfile ,googleLogin} = useContext(AuthContext)
+    const { createUser, updateUserProfile, googleLogin } = useContext(AuthContext)
+    const navigate = useNavigate();
+    const [userEmail, setUserEmail] = useState('');
+    const [token] = UseToken(userEmail)
+
+    if (token) {
+        navigate('/')
+    }
 
     const registerSubmit = event => {
 
@@ -13,16 +21,16 @@ const Register = () => {
 
         const form = event.target;
         const name = form.name.value;
-        
+
         const email = form.email.value;
         const position = form.select.value;
         const password = form.password.value;
         const image = form.image.files[0]
-        
-       
+
+
         const formData = new FormData()
         formData.append('image', image)
-        const url =  "https://api.imgbb.com/1/upload?expiration=600&key=f2c33e31b627f916630ff6b4299e8ca3"
+        const url = "https://api.imgbb.com/1/upload?expiration=600&key=f2c33e31b627f916630ff6b4299e8ca3"
 
         fetch(url, {
             method: 'POST',
@@ -30,59 +38,61 @@ const Register = () => {
         })
             .then(res => res.json())
             .then(imageData => {
-                
-                const imageUrl=imageData.data.display_url
-                createUser(email, password)
-                .then(result=>{
-                    updateUserProfile(name, imageUrl)
-                    toast.success('successfully created user')
-                    saveUser(name, email , position)
-                    form.reset();
 
-                })
-                .catch(error=>{
-                    console.log(error);
-                })
-                
+                const imageUrl = imageData.data.display_url
+                createUser(email, password)
+                    .then(result => {
+                        updateUserProfile(name, imageUrl)
+                        toast.success('successfully created user')
+                        saveUser(name, email, position)
+                        setUserEmail(email)
+                        form.reset();
+
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    })
+
 
             })
-         .catch(err => console.error(err))
+            .catch(err => console.error(err))
 
     }
 
 
-    const googleLoginUser=()=>{
+    const googleLoginUser = () => {
         googleLogin()
-        .then(data=>{
-            saveUser(data.user.displayName, data.user.email)
-            toast.success('successfully created user')
-        })
-        .catch(error=>{
-            console.log(error);
-        })
+            .then(data => {
+                setUserEmail(data.user.email)
+                saveUser(data.user.displayName, data.user.email)
+                toast.success('successfully created user')
+            })
+            .catch(error => {
+                console.log(error);
+            })
     }
 
 
-    const saveUser=(name, email, position)=>{
+    const saveUser = (name, email, position) => {
         const user = {
             name, email, position
         };
-        fetch('http://localhost:5000/position',{
-            method:'POST',
-            headers:{
-                'content-type':'application/json'
+        fetch('http://localhost:5000/position', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
             },
-            body:JSON.stringify(user)
+            body: JSON.stringify(user)
         })
-        .then(res=> res.json())
-        .then(data=>{
-          
-            console.log(data);
+            .then(res => res.json())
+            .then(data => {
 
-        })
-        .catch(error=>{
-            console.error(error);
-        })
+                console.log(data);
+
+            })
+            .catch(error => {
+                console.error(error);
+            })
     }
     return (
         <div className="hero min-h-screen bg-white">

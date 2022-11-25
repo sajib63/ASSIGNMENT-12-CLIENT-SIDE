@@ -1,11 +1,19 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import loginImage from '../Assets/animation/login.gif'
 import { AuthContext } from '../UserContex/UseContext';
 import toast from 'react-hot-toast';
+import UseToken from '../Hooks/UseToken';
 
 const Login = () => {
     const {loginUser,googleLogin}=useContext(AuthContext)
+    const navigate=useNavigate();
+    const [userEmail, setUserEmail]=useState('')
+    const [token]=UseToken(userEmail);
+
+    if(token){
+      navigate('/')
+    }
 
     const loginHandle=event=>{
         event.preventDefault();
@@ -16,6 +24,7 @@ const Login = () => {
         .then(result=>{
             console.log(result.user);
            toast.success('successfully login user')
+           setUserEmail(email)
            form.reset()
         })
         .catch(error=>{
@@ -27,7 +36,8 @@ const Login = () => {
 
     const googleLoginUser=()=>{
         googleLogin()
-        .then(()=>{
+        .then(data=>{
+          setUserEmail(data.user.email)
             toast.success('successfully created user')
         })
         .catch(error=>{
