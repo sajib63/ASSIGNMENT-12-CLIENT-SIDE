@@ -7,6 +7,8 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
+import UseContext from './UserContex/UseContext';
+
 
 const queryClient = new QueryClient()
 
@@ -15,7 +17,9 @@ root.render(
   <React.StrictMode>
 
     <QueryClientProvider client={queryClient}>
-      <App />
+    <UseContext>
+    <App />
+    </UseContext>
     </QueryClientProvider>
 
   </React.StrictMode>

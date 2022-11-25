@@ -7,7 +7,9 @@ import Lamborghini from "../Component/Home/AllCars/Lamborghini";
 import Mercedes from "../Component/Home/AllCars/Mercedes";
 import Tesla from "../Component/Home/AllCars/Tesla";
 import MainHome from "../Component/Home/MainHome";
+import Login from "../Component/Login";
 import Navbar from "../Component/Navbar/Navbar";
+import Register from "../Component/Register";
 import Main from "../Layout/Main";
 
 export const router=createBrowserRouter([
@@ -50,7 +52,15 @@ export const router=createBrowserRouter([
             {
                 path:'/lamborghini',
                 element:<Lamborghini></Lamborghini>
-            }
+            },
+            {
+                path:'/login',
+                element:<Login></Login>
+            },
+            {
+                path:'/register',
+                element:<Register></Register>
+            },
         ]
     }
 ])

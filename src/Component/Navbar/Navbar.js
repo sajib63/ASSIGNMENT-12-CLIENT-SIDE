@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FaCarSide } from 'react-icons/fa';
+import { AuthContext } from '../../UserContex/UseContext';
 
 const Navbar = () => {
+    const {user}=useContext(AuthContext)
 
     const navItems = <>
         <li><Link to='/' className=' font-semibold  hover:bg-primary rounded hover:text-white '>Home</Link></li>
@@ -14,7 +16,7 @@ const Navbar = () => {
 
     </>
     return (
-        <div className="navbar  sticky bg-base-100 top-0 z-50 w-full">
+        <div className="navbar  sticky bg-white top-0 z-50 w-full">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -36,11 +38,14 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
+                
 
-                <Link to='/login' className='p-3 font-semibold  hover:bg-primary rounded hover:text-white '>Login</Link>
+                <Link  className='p-3 font-semibold  hover:bg-primary rounded hover:text-white '>{user?.email}</Link>
+
+                <Link to='/login' className='p-3 mx-4 font-semibold  bg-primary rounded text-white '>Login</Link>
 
 
-                <Link to='' className='p-3  font-semibold  hover:bg-primary rounded hover:text-white '>Logout</Link>
+                <Link  className='p-3  font-semibold bg-primary rounded text-white '>Logout</Link>
             </div>
         </div>
     );
