@@ -37,6 +37,7 @@
     {
       "purchase_Price": "$2,584.27",
       "sell_price": "$1,908.42",
+      "verification":true,
       "picture": "https://i.ibb.co/kxDT9nC/bmw-m5.jpg",
       "age": 1,
       "time":"11:30AM",
@@ -51,6 +52,7 @@
       "picture": "https://i.ibb.co/jyHxMVf/bmw-x1.webp",
       "age": 2,
       "time":"12:00PM",
+      "verification":true,
       "seller_name": "Watkins Koch",
       "product_name": "BMW X-1",
       "phone": "+880 (966) 450-2207",

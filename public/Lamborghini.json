@@ -25,6 +25,7 @@
       "seller_name": "Sherry Mcleod",
       "product_name": "Lamborghini Aventador",
       "phone": "+880 (803) 476-3963",
+      "verification":true,
       "address": "490 Lexington Avenue, Strong, Puerto Rico, 4159"
     },
     {
@@ -44,6 +45,7 @@
       "picture": "https://i.ibb.co/6bPqXj4/huracan.jpg",
       "age": 1,
       "time":"11:30AM",
+      "verification":true,
       "seller_name": "Lopez Knapp",
       "product_name": "Lamborghini Huracan",
       "phone": "+880 (945) 508-3186",
@@ -66,6 +68,7 @@
       "picture": "https://i.ibb.co/7KPg7Pj/sian.jpg",
       "age": 7,
       "time":"12:30PM",
+      "verification":true,
       "seller_name": "Gwendolyn Knight",
       "product_name": "Lamborghini Sian",
       "phone": "+880 (841) 594-2009",

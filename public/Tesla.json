@@ -30,6 +30,7 @@
       "picture": "https://i.ibb.co/SPfwCL9/tesla-model-s.jpg",
       "age": 6,
       "time":"11:00AM",
+      "verification":true,
       "seller_name": "Jordan Lucas",
       "product_name": "Tesla Model S",
       "phone": "+880 (999) 506-3274",
@@ -53,6 +54,7 @@
       "age": 2,
       "time":"12:00PM",
       "seller_name": "Watkins Koch",
+      "verification":true,
       "product_name": "Tesla Roadster",
       "phone": "+880 (966) 450-2207",
       "address": "115 Miller Avenue, Interlochen, Maryland, 7476"

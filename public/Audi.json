@@ -28,6 +28,7 @@
       "picture": "https://i.ibb.co/0F78WfN/audi-a5.jpg",
       "age": 6,
       "time":"11:00AM",
+      "verification":true,
       "seller_name": "Jordan Lucas",
       "product_name": "Audi A5",
       "phone": "+880 (999) 506-3274",
@@ -41,6 +42,7 @@
       "time":"11:30AM",
       "seller_name": "Lopez Knapp",
       "product_name": "Audi A6",
+      "verification":true,
       "phone": "+880 (945) 508-3186",
       "address": "354 Ludlam Place, Datil, Delaware, 6421"
     },
@@ -61,6 +63,7 @@
       "picture": "https://i.ibb.co/Wxyf8zW/audi-a8-final-img.jpg",
       "age": 7,
       "time":"12:30PM",
+      "verification":true,
       "seller_name": "Gwendolyn Knight",
       "product_name": "Audi A8",
       "phone": "+880 (841) 594-2009",

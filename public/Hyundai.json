@@ -12,6 +12,7 @@
       "picture": "https://i.ibb.co/yhd43QN/hyundai-120.webp",
       "age": 3,
       "time":"10:00AM",
+      "verification":true,
       "seller_name": "Gwen Wilkinson",
       "product_name": "Hyundai i20",
       "phone": "+880 (854) 406-2815",
@@ -45,6 +46,7 @@
       "picture": "https://i.ibb.co/pZzSRTM/hyundai-tucson.webp",
       "age": 1,
       "time":"11:30AM",
+      "verification":true,
       "seller_name": "Lopez Knapp",
       "product_name": "Hyundai Tucson",
       "phone": "+880 (945) 508-3186",
@@ -68,6 +70,7 @@
       "age": 7,
       "time":"12:30PM",
       "seller_name": "Gwendolyn Knight",
+      "verification":true,
       "product_name": "Hyundai Verna",
       "phone": "+880 (841) 594-2009",
       "address": "755 Federated States Of Micronesia, 1316"

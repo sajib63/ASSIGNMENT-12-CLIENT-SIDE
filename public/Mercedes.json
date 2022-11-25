@@ -1,10 +1,5 @@
 [
   
- 
-  
-  
-  
- 
 
   {
       "purchase_Price": "$2,431.38",
@@ -35,6 +30,7 @@
       "age": 6,
       "time":"11:00AM",
       "seller_name": "Jordan Lucas",
+      "verification":true,
       "product_name": "Mercedes benz-E-Class",
       "phone": "+880 (999) 506-3274",
       "address": "505 Highland Boulevard, Sattley, California, 4066"
@@ -67,6 +63,7 @@
       "picture": " https://i.ibb.co/F8LHCz8/mercedes-benz-s-class.webp",
       "age": 7,
       "time":"12:30PM",
+      "verification":true,
       "seller_name": "Gwendolyn Knight",
       "product_name": "Mercedes Benz-S-Class",
       "phone": "+880 (841) 594-2009",
