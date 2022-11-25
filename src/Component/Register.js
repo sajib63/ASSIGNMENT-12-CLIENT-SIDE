@@ -67,7 +67,7 @@ const Register = () => {
         const user = {
             name, email, position
         };
-        fetch('http://localhost:5000/seller',{
+        fetch('http://localhost:5000/position',{
             method:'POST',
             headers:{
                 'content-type':'application/json'
@@ -76,7 +76,7 @@ const Register = () => {
         })
         .then(res=> res.json())
         .then(data=>{
-            toast.success('successfully added on db')
+          
             console.log(data);
 
         })
