@@ -5,10 +5,8 @@ import ExtraSection from './ExtraSection';
 import ExtraSectiontwo from './ExtraSectiontwo';
 
 
-
-
-
 const MainHome = () => {
+  
     return (
         <div>
             <div>

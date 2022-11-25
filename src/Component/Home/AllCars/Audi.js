@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useEffect, useState } from 'react';
+import { Loader } from '../../Shared/Loader';
 import AllCarsCard from './AllCarsCard';
 
 const Audi = () => {
@@ -14,6 +15,9 @@ const Audi = () => {
         }
 
     })
+    if(isLoading){
+        return <Loader></Loader>
+    }
     return (
         <div>
            
