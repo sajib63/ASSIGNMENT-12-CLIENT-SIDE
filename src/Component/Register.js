@@ -5,7 +5,7 @@ import { AuthContext } from '../UserContex/UseContext';
 import toast from 'react-hot-toast';
 
 const Register = () => {
-    const { createUser,updateUserProfile } = useContext(AuthContext)
+    const { createUser,updateUserProfile ,googleLogin} = useContext(AuthContext)
 
     const registerSubmit = event => {
 
@@ -30,6 +30,7 @@ const Register = () => {
         })
             .then(res => res.json())
             .then(imageData => {
+                console.log(imageData);
                 const imageUrl=imageData.data.display_url
                 createUser(email, password)
                 .then(result=>{
@@ -47,6 +48,17 @@ const Register = () => {
             })
          .catch(err => console.error(err))
 
+    }
+
+
+    const googleLoginUser=()=>{
+        googleLogin()
+        .then(()=>{
+            toast.success('successfully created user')
+        })
+        .catch(error=>{
+            console.log(error);
+        })
     }
     return (
         <div className="hero min-h-screen bg-white">
@@ -109,7 +121,7 @@ const Register = () => {
                     </form>
                     <div className=' text-center'>
 
-                        <button className='btn btn-primary my-2 w-80'>Google LogIn</button>
+                        <button onClick={googleLoginUser} className='btn btn-primary my-2 w-80'>Google LogIn</button>
                         <p className='my-2'>Already have an account Please  <Link to='/login' className='text-primary'>Login</Link>.</p>
                     </div>
 

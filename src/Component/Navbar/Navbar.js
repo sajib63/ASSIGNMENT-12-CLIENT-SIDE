@@ -4,14 +4,14 @@ import { FaCarSide } from 'react-icons/fa';
 import { AuthContext } from '../../UserContex/UseContext';
 
 const Navbar = () => {
-    const {user, logout}=useContext(AuthContext)
+    const { user, logout } = useContext(AuthContext)
 
     const navItems = <>
         <li><Link to='/' className=' font-semibold  hover:bg-primary rounded hover:text-white '>Home</Link></li>
         <li><Link to='/' className=' font-semibold  hover:bg-primary rounded hover:text-white '>About</Link></li>
         <li><Link to='/' className=' font-semibold  hover:bg-primary rounded hover:text-white '>Product</Link></li>
         <li><Link to='/' className=' font-semibold  hover:bg-primary rounded hover:text-white '>Blog</Link></li>
-       
+
 
 
     </>
@@ -28,7 +28,7 @@ const Navbar = () => {
                 </div>
                 <Link className=" font-semibold text-xl">
                     <div className='flex justify-center items-center gap-1'>
-                    <p>Car</p> <span><FaCarSide className='text-primary'></FaCarSide></span><span className='text-primary'>Reseller</span>
+                        <p>Car</p> <span><FaCarSide className='text-primary'></FaCarSide></span><span className='text-primary'>Reseller</span>
                     </div>
                 </Link>
             </div>
@@ -38,14 +38,27 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                
+                {
+                    user?.uid ? <>
+                       
+                       
+                       <Link className='p-3 mx-2 font-semibold  bg-primary rounded text-white '>{user?.displayName}</Link>
+                       
+                        <Link onClick={logout} className='p-3  font-semibold bg-primary rounded text-white '>Logout</Link>
+                    </>
+                        :
+                        <>
 
-                <Link  className='p-3 font-semibold  hover:bg-primary rounded hover:text-white '>{user?.email}</Link>
+                            <Link to='/login' className='p-3 mx-4 font-semibold  bg-primary rounded text-white '>Login</Link>
+                        </>
+                }
 
-                <Link to='/login' className='p-3 mx-4 font-semibold  bg-primary rounded text-white '>Login</Link>
 
 
-                <Link onClick={logout}  className='p-3  font-semibold bg-primary rounded text-white '>Logout</Link>
+
+
+
+
             </div>
         </div>
     );
