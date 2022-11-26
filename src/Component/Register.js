@@ -44,7 +44,7 @@ const Register = () => {
                     .then(result => {
                         updateUserProfile(name, imageUrl)
                         toast.success('successfully created user')
-                        saveUser(name, email, position)
+                        saveUser(imageUrl,name, email, position )
                         setUserEmail(email)
                         form.reset();
 
@@ -63,8 +63,10 @@ const Register = () => {
     const googleLoginUser = () => {
         googleLogin()
             .then(data => {
+                console.log(data);
                 setUserEmail(data.user.email)
-                saveUser(data.user.displayName, data.user.email)
+                saveUser(data.user.photoURL
+                    ,data.user.displayName, data.user.email)
                 toast.success('successfully created user')
             })
             .catch(error => {
@@ -73,9 +75,9 @@ const Register = () => {
     }
 
 
-    const saveUser = (name, email, position) => {
+    const saveUser = ( imageUrl,name, email, position ) => {
         const user = {
-            name, email, position
+            imageUrl,   name, email, position 
         };
         fetch('http://localhost:5000/position', {
             method: 'POST',
