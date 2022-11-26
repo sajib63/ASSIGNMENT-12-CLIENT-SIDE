@@ -9,8 +9,8 @@ const Navbar = () => {
     const navItems = <>
         <li><Link to='/' className=' font-semibold  hover:bg-primary rounded hover:text-white '>Home</Link></li>
         <li><Link to='/' className=' font-semibold  hover:bg-primary rounded hover:text-white '>About</Link></li>
-        <li><Link to='/' className=' font-semibold  hover:bg-primary rounded hover:text-white '>Product</Link></li>
         <li><Link to='/' className=' font-semibold  hover:bg-primary rounded hover:text-white '>Blog</Link></li>
+        <li><Link htmlFor="dashBoard-drawer" to='/dashboard' className=' font-semibold  hover:bg-primary rounded hover:text-white '>DashBoard</Link></li>
 
 
 
@@ -40,10 +40,10 @@ const Navbar = () => {
             <div className="navbar-end ">
                 {
                     user?.uid ? <>
-                       
-                       
-                       <Link className='p-3 mx-2 font-semibold  bg-primary rounded text-white '>{user?.displayName}</Link>
-                       
+
+
+                        <Link className='p-3 mx-2 font-semibold  bg-primary rounded text-white '>{user?.displayName}</Link>
+
                         <Link onClick={logout} className='p-3  font-semibold bg-primary rounded text-white '>Logout</Link>
                     </>
                         :
@@ -55,7 +55,9 @@ const Navbar = () => {
 
 
 
-
+                <label htmlFor="dashBoard-drawer" tabIndex={2} className="btn btn-ghost lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                </label>
 
 
 

@@ -1,4 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
+import AllBuyer from "../Component/DashBoard/AllBuyer";
+import AllSeller from "../Component/DashBoard/AllSeller";
 import Footer from "../Component/Footer/Footer";
 import Audi from "../Component/Home/AllCars/Audi";
 import Bmw from "../Component/Home/AllCars/Bmw";
@@ -10,6 +12,8 @@ import MainHome from "../Component/Home/MainHome";
 import Login from "../Component/Login";
 import Navbar from "../Component/Navbar/Navbar";
 import Register from "../Component/Register";
+import PrivateRoute from "../Component/Shared/PrivateRoute";
+import DashboardMain from "../Layout/DashboardMain";
 import Main from "../Layout/Main";
 
 export const router=createBrowserRouter([
@@ -62,5 +66,22 @@ export const router=createBrowserRouter([
                 element:<Register></Register>
             },
         ]
+    },
+    {
+        path:'/dashboard',
+        element:<DashboardMain/>,
+        children:[
+          
+            {
+                path:'/dashboard/allSeller',
+                element:<AllSeller/>
+            },
+            {
+                path:'/dashboard/allBuyers',
+                element:<AllBuyer/>
+            },
+            
+        ]
     }
+
 ])
