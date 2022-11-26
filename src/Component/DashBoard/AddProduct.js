@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
+import { AuthContext } from '../../UserContex/UseContext';
 
 const AddProduct = () => {
-
+    const { user } = useContext(AuthContext)
     const dateTime = new Date().toLocaleString();
     const handleSubmit = event => {
         event.preventDefault()
@@ -14,24 +16,61 @@ const AddProduct = () => {
         const purchase_Price = form.purchase_Price.value;
         const sell_price = form.sell_price.value;
         const address = form.address.value;
-        const number = form.number.value;
-        const picture = form.image.files[0]
+        const phone = form.number.value;
 
-        const data = {
-            product_name,
-            sell_price,
-            seller_name,
-            email,
-            brand,
-            age,
-            purchase_Price,
-            address,
-            number,
-            picture,
-            time: dateTime
-        }
+        const image = form.image.files[0]
 
-        console.log(data);
+        const formData = new FormData()
+        formData.append('image', image)
+        const url = "https://api.imgbb.com/1/upload?expiration=600&key=f2c33e31b627f916630ff6b4299e8ca3"
+
+        fetch(url, {
+            method: 'POST',
+            body: formData,
+        })
+            .then(res => res.json())
+            .then(imgData => {
+
+                const products = {
+                    product_name,
+                    sell_price,
+                    seller_name,
+                    email,
+                    brand,
+                    age,
+                    purchase_Price,
+                    address,
+                    phone,
+                    picture: imgData.data.display_url,
+                    time: dateTime
+                }
+
+                fetch('http://localhost:5000/addProduct', {
+                    method: "POST",
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(products)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        toast.success('product added successfully')
+                        form.reset();
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    })
+
+
+
+            })
+            .catch(error => {
+                console.log(error);
+            })
+
+
+
+
 
 
 
@@ -39,13 +78,13 @@ const AddProduct = () => {
 
 
     return (
-        <div>
+        <div className='mb-20'>
             <h1 className='text-primary text-2xl font-bold'> Add Products </h1>
 
             <div className="hero-content w-full">
 
                 <form onSubmit={handleSubmit} className="card flex-shrink-0 w-full shadow-2xl bg-base-100">
-                    <div className="card-body w-2/3 mx-auto">
+                    <div className="card-body w-full lg:w-2/3 mx-auto">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text ">Product Name</span>
@@ -57,13 +96,13 @@ const AddProduct = () => {
                             <label className="label">
                                 <span className="label-text">Seller Name</span>
                             </label>
-                            <input type="text" required name='seller_name' placeholder="seller Name" className="input input-sm input-bordered input-primary" />
+                            <input type="text" required name='seller_name' value={user?.displayName} disabled placeholder="seller Name" className="input input-sm input-bordered input-primary" />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Seller Email</span>
                             </label>
-                            <input type="email" required name='email' placeholder="Seller Email" className="input input-sm input-bordered input-primary" />
+                            <input type="email" required name='email' value={user?.email} disabled placeholder="Seller Email" className="input input-sm input-bordered input-primary" />
                         </div>
 
                         {/* select brand start */}
@@ -73,7 +112,7 @@ const AddProduct = () => {
 
                             </label>
                             <select name='brand' className="select select-bordered border border-primary">
-                              
+
                                 <option>tesla</option>
                                 <option>audi</option>
                                 <option>bmw</option>
@@ -130,7 +169,7 @@ const AddProduct = () => {
 
 
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary">Submit</button>
+                            <button className="btn btn-primary">Add Product</button>
                         </div>
                     </div>
                 </form>

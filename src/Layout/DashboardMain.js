@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 
+
 import Navbar from '../Component/Navbar/Navbar';
 
 const DashboardMain = () => {
@@ -12,7 +13,7 @@ const DashboardMain = () => {
                 <div className="drawer-content">
 
                     <Outlet />
-                    
+                   
 
                 </div>
                 <div className="drawer-side">
@@ -41,6 +42,7 @@ const DashboardMain = () => {
 
                 </div>
             </div>
+          
         </div>
     );
 };

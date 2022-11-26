@@ -21,8 +21,8 @@ const AllCarsCard = ({ cars }) => {
                     }</p>
                    
                    
-                    <p >Purchase-Price: {purchase_Price}</p>
-                    <p >Sell-Price: {sell_price}</p>
+                    <p >Purchase-Price: ${purchase_Price}</p>
+                    <p >Sell-Price: ${sell_price}</p>
                     <p >Address: {address}</p>
                     <p >Phone: {phone}</p>
                     <p >Post: {time}</p>
