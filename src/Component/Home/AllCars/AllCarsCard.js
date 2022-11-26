@@ -26,7 +26,8 @@ const AllCarsCard = ({ cars }) => {
                     <p >Address: {address}</p>
                     <p >Phone: {phone}</p>
                     <p >Post: {time}</p>
-                    <div className="card-actions justify-end">
+                    <div className="card-actions justify-between">
+                        <button className='btn bg-blue-600 border-0 hover:text-red-700'>Report</button>
                         <button className='btn bg-primary'>Book now</button>
                     </div>
                 </div>
