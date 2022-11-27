@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../UserContex/UseContext';
 
 const AddProduct = () => {
     const { user } = useContext(AuthContext)
+    const navigate=useNavigate();
     const dateTime = new Date().toLocaleString();
     const handleSubmit = event => {
         event.preventDefault()
@@ -55,6 +57,7 @@ const AddProduct = () => {
                     .then(res => res.json())
                     .then(data => {
                         toast.success('product added successfully')
+                        navigate('/dashboard/myProduct')
                         form.reset();
                     })
                     .catch(error => {
@@ -128,7 +131,7 @@ const AddProduct = () => {
                             <label className="label">
                                 <span className="label-text">Uses Days</span>
                             </label>
-                            <input type="number" required name='age' placeholder="Buyer Name" className="input input-sm input-bordered input-primary" />
+                            <input type="number" required name='age' placeholder="Usage days" className="input input-sm input-bordered input-primary" />
                         </div>
 
                         <div className="form-control">
