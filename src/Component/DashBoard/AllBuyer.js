@@ -1,9 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import toast from 'react-hot-toast';
 import { Loader } from '../Shared/Loader';
 
 const AllBuyer = () => {
-    const { data: sellers = [], isLoading } = useQuery({
+    const { data: sellers = [], isLoading, refetch } = useQuery({
         queryKey: ['buyers'],
         queryFn: async () => {
             const res = await fetch('http://localhost:5000/buyers')
@@ -15,6 +16,24 @@ const AllBuyer = () => {
 
     if (isLoading) {
         return <Loader></Loader>
+    }
+    const deleteSeller = sellerData => {
+        const agree = window.confirm(`are you sure to delete ${sellerData.name}`)
+        if (agree) {
+            fetch(`http://localhost:5000/allBuyers/${sellerData._id}`, {
+                method: "DELETE"
+            })
+                .then(res => res.json())
+                .then(data => {
+                    toast.success(`successfully deleted ${sellerData.name}`)
+                    refetch();
+                })
+                .catch(error => {
+                    toast.error(error.message)
+
+
+                })
+        }
     }
     return (
         <div className='my-8'>
@@ -33,7 +52,7 @@ const AllBuyer = () => {
                 <tbody>
 
                     {
-                        sellers?.map((buyers, i) => <tr>
+                        sellers?.map((buyers, i) => <tr key={buyers._id}>
                             <th>{i + 1}</th>
                             <td>
                                 <div className="avatar">
@@ -47,7 +66,7 @@ const AllBuyer = () => {
                             <td>{buyers?.email}</td>
                             <td>
                                 
-                                <button className='btn bg-red-600 btn-sm border-0'>delete</button>
+                                <button onClick={()=>deleteSeller(buyers)} className='btn bg-red-600 btn-sm border-0'>delete</button>
                                 
                             </td>
                         </tr>)

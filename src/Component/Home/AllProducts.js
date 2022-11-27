@@ -35,7 +35,7 @@ const AllProducts = () => {
                 alt="Person"
               />
               <div className="absolute inset-0 flex flex-col justify-center px-5 py-4 text-center transition-opacity duration-300 bg-black bg-opacity-75 opacity-0 hover:opacity-100">
-                <p className="mb-1 text-lg font-bold text-neutral">
+                <p className="mb-1 text-2xl font-bold text-white">
                Tesla
                 </p>
             
@@ -69,7 +69,7 @@ const AllProducts = () => {
                 alt="Person"
               />
               <div className="absolute inset-0 flex flex-col justify-center px-5 py-4 text-center transition-opacity duration-300 bg-black bg-opacity-75 opacity-0 hover:opacity-100">
-                <p className="mb-1 text-lg font-bold text-neutral">
+                <p className="mb-1 text-2xl font-bold text-white">
                Audi
                 </p>
             
@@ -102,7 +102,7 @@ const AllProducts = () => {
                 alt="Person"
               />
               <div className="absolute inset-0 flex flex-col justify-center px-5 py-4 text-center transition-opacity duration-300 bg-black bg-opacity-75 opacity-0 hover:opacity-100">
-                <p className="mb-1 text-lg font-bold text-neutral">
+                <p className="mb-1 text-2xl font-bold text-white">
                BMW
                 </p>
             
@@ -135,7 +135,7 @@ const AllProducts = () => {
                 alt="Person"
               />
               <div className="absolute inset-0 flex flex-col justify-center px-5 py-4 text-center transition-opacity duration-300 bg-black bg-opacity-75 opacity-0 hover:opacity-100">
-                <p className="mb-1 text-lg font-bold text-neutral">
+                <p className="mb-1 text-2xl font-bold text-white">
                Hyundai
                 </p>
             
@@ -168,7 +168,7 @@ const AllProducts = () => {
                 alt="Person"
               />
               <div className="absolute inset-0 flex flex-col justify-center px-5 py-4 text-center transition-opacity duration-300 bg-black bg-opacity-75 opacity-0 hover:opacity-100">
-                <p className="mb-1 text-lg font-bold text-neutral">
+                <p className="mb-1 text-2xl font-bold text-white">
                Mercedes
                 </p>
             
@@ -201,7 +201,7 @@ const AllProducts = () => {
                 alt="Person"
               />
               <div className="absolute inset-0 flex flex-col justify-center px-5 py-4 text-center transition-opacity duration-300 bg-black bg-opacity-75 opacity-0 hover:opacity-100">
-                <p className="mb-1 text-lg font-bold text-neutral">
+                <p className="mb-1 text-2xl font-bold text-white">
                Lamborghini
                 </p>
             
