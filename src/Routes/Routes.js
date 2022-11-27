@@ -93,6 +93,7 @@ export const router=createBrowserRouter([
             },
             {
                 path:'/dashboard/myProduct',
+              
                 element:<MyProducts/>
             },
             

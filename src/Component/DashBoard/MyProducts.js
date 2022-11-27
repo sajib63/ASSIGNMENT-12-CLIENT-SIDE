@@ -1,13 +1,16 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
+import toast from 'react-hot-toast';
 import { AuthContext } from '../../UserContex/UseContext';
 import { Loader } from '../Shared/Loader';
+import AdvertisementModal from './AdvertisementModal';
 import DashBoardCard from './DashBoardCard';
 
 const MyProducts = () => {
     const { user } = useContext(AuthContext)
+    const [modal, setModal]=useState('')
 
-    const { data: myProduct = [], isLoading } = useQuery({
+    const { data: myProduct = [], isLoading, refetch } = useQuery({
         queryKey: ['myProduct', user?.email],
         queryFn: async () => {
             const res = await fetch(`http://localhost:5000/myProducts?email=${user?.email}`)
@@ -17,9 +20,27 @@ const MyProducts = () => {
         }
     })
 
+    const deleteButton = products => {
+        const agree = window.confirm(`are you sure to delete ${products.product_name}`)
+        if (agree) {
+            fetch(`http://localhost:5000/deleteMyProduct/${products._id}`, {
+                method: "DELETE"
+            })
+                .then(res => res.json())
+                .then(data => {
+                    toast.success('successfully deleted')
+                    refetch();
+                    console.log(data);
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+        }
 
-console.log(myProduct);
+    }
 
+
+ 
 
     if (isLoading) {
         return <Loader></Loader>
@@ -28,28 +49,34 @@ console.log(myProduct);
         <div className='my-10 grid grid-cols-1 md:grid-cols-3'>
             {
                 myProduct[0]?.length > 0 &&
-                myProduct[0]?.map(product => <DashBoardCard product={product} key={product._id}></DashBoardCard>)
+                myProduct[0]?.map(product => <DashBoardCard product={product} key={product._id} deleteButton={deleteButton} setModal={setModal}></DashBoardCard>)
             }
             {
                 myProduct[1]?.length > 0 &&
-                myProduct[1]?.map(product => <DashBoardCard product={product} key={product._id}></DashBoardCard>)
+                myProduct[1]?.map(product => <DashBoardCard product={product} key={product._id} deleteButton={deleteButton} setModal={setModal}></DashBoardCard>)
             }
             {
                 myProduct[2]?.length > 0 &&
-                myProduct[2]?.map(product =>  <DashBoardCard product={product} key={product._id}></DashBoardCard>)
+                myProduct[2]?.map(product => <DashBoardCard product={product} key={product._id} deleteButton={deleteButton} setModal={setModal}></DashBoardCard>)
             }
             {
                 myProduct[3]?.length > 0 &&
-                myProduct[3]?.map(product =>  <DashBoardCard product={product} key={product._id}></DashBoardCard>)
+                myProduct[3]?.map(product => <DashBoardCard product={product} key={product._id} deleteButton={deleteButton} setModal={setModal}></DashBoardCard>)
             }
             {
                 myProduct[4]?.length > 0 &&
-                myProduct[4]?.map(product => <DashBoardCard product={product} key={product._id}></DashBoardCard>)
+                myProduct[4]?.map(product => <DashBoardCard product={product} key={product._id} deleteButton={deleteButton} setModal={setModal}></DashBoardCard>)
             }
             {
                 myProduct[5]?.length > 0 &&
-                myProduct[5]?.map(product => <DashBoardCard product={product} key={product._id}></DashBoardCard>)
+                myProduct[5]?.map(product => <DashBoardCard product={product} key={product._id} deleteButton={deleteButton} setModal={setModal}></DashBoardCard>)
             }
+
+
+            <div>
+            <AdvertisementModal modal={modal}></AdvertisementModal>
+            </div>
+
         </div>
     );
 };

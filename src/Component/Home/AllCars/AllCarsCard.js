@@ -6,7 +6,7 @@ const AllCarsCard = ({ cars }) => {
     const { purchase_Price, sell_price, picture, age, time, seller_name, product_name, phone, address , verification} = cars;
     return (
         <div className='p-4'>
-            <div className="card  bg-base-100 shadow-xl px-4 lg:px-0">
+            <div className="card  bg-white shadow-xl px-4 lg:px-0">
                 <figure><img src={picture} className="h-full md:h-[250px] lg:h-[300px] lg:w-full" alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className=" text-sm lg:text-2xl">
