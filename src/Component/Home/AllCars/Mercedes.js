@@ -2,9 +2,10 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useEffect, useState } from 'react';
 import { Loader } from '../../Shared/Loader';
 import AllCarsCard from './AllCarsCard';
+import AllCarsModal from './AllCarsModal';
 
 const Mercedes = () => {
-
+    const [modalData, setModalData]=useState('')
 
     const {data: mercedesCars=[], isLoading}=useQuery({
         queryKey:['mercedes'],
@@ -21,9 +22,10 @@ const Mercedes = () => {
         <div>
                <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {
-                mercedesCars?.map(cars=> <AllCarsCard key={cars._id} cars={cars}></AllCarsCard>)
+                mercedesCars?.map(cars=> <AllCarsCard key={cars._id} cars={cars} setModalData={setModalData}></AllCarsCard>)
             }
            </div>
+           <AllCarsModal modalData={modalData}></AllCarsModal>
         </div>
     );
 };
