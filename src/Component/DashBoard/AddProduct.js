@@ -1,3 +1,4 @@
+import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
@@ -5,14 +6,33 @@ import { AuthContext } from '../../UserContex/UseContext';
 
 const AddProduct = () => {
     const { user } = useContext(AuthContext)
-    const navigate=useNavigate();
+    const navigate = useNavigate();
     const dateTime = new Date().toLocaleString();
+
+
+    const { data: sellers = [], isLoading } = useQuery({
+        queryKey: ['sellers', user?.email],
+        queryFn: async () => {
+            const res = await fetch(`http://localhost:5000/verifiedEmail?email=${user?.email}`)
+            const data = await res.json()
+            return data
+        }
+    })
+
+
+
+
+
+
+
+
     const handleSubmit = event => {
         event.preventDefault()
         const form = event.target
         const product_name = form.product_name.value;
         const seller_name = form.seller_name.value;
         const email = form.email.value;
+        const verification = form.verification.value;
         const brand = form.brand.value;
         const age = form.age.value;
         const purchase_Price = form.purchase_Price.value;
@@ -43,6 +63,7 @@ const AddProduct = () => {
                     purchase_Price,
                     address,
                     phone,
+                    verification,
                     picture: imgData.data.display_url,
                     time: dateTime
                 }
@@ -80,6 +101,9 @@ const AddProduct = () => {
     }
 
 
+
+
+
     return (
         <div className='mb-20'>
             <h1 className='text-primary text-2xl font-bold'> Add Products </h1>
@@ -106,6 +130,15 @@ const AddProduct = () => {
                                 <span className="label-text">Seller Email</span>
                             </label>
                             <input type="email" required name='email' value={user?.email} disabled placeholder="Seller Email" className="input input-sm input-bordered input-primary" />
+                        </div>
+
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Seller Verification</span>
+                            </label>
+                            {
+                                sellers?.map(seller => <input type="verification" required name='verification' value={seller?.verification} disabled placeholder="Seller Email" className="input input-sm input-bordered input-primary" />)
+                            }
                         </div>
 
                         {/* select brand start */}

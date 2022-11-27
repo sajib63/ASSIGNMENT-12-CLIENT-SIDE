@@ -42,7 +42,7 @@ const Navbar = () => {
                     user?.uid ? <>
 
 
-                        <Link className='p-3 mx-2 font-semibold  bg-primary rounded text-white '>{user?.displayName}</Link>
+                        <Link className='p-3 mx-2 font-semibold  bg-primary rounded text-white '>{user?.email}</Link>
 
                         <Link onClick={logout} className='p-3  font-semibold bg-primary rounded text-white '>Logout</Link>
                     </>

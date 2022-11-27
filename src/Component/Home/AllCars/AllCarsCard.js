@@ -17,7 +17,7 @@ const AllCarsCard = ({ cars , setModalData}) => {
                     </h2>
                     <p>Use: {age} Month</p>
                   
-                    <p className='inline'>Seller: {seller_name} {verification?   <span><FaCheck className='inline-block text-primary'></FaCheck></span>: ''
+                    <p className='inline'>Seller: {seller_name} {verification ==="verified"?   <span><FaCheck className='inline-block text-primary'></FaCheck></span>: ''
                     
                     
                     }</p>
