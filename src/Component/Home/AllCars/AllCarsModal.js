@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { AuthContext } from '../../../UserContex/UseContext';
 
 const AllCarsModal = ({ modalData }) => {
@@ -25,7 +26,23 @@ const AllCarsModal = ({ modalData }) => {
             meetingAddress
 
         }
-        console.log(productInfo);
+
+        fetch('http://localhost:5000/booking', {
+            method:"POST",
+            headers:{
+                'content-type':'application/json'
+            },
+            body:JSON.stringify(productInfo)
+          })
+          .then(res=> res.json())
+          .then(data =>{
+            toast.success('successfully added on server')
+            event.target.reset();
+          })
+          .catch(error=>{
+            console.log(error);
+          })
+            
 
     }
     return (
