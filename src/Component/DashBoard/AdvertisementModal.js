@@ -11,8 +11,23 @@ const [amount, setAmount]=useState('')
       const advertisementProducts={
         purchase_Price, sell_price, picture, age, time, seller_name, product_name, phone, address, verification, amount
       }
+      fetch('http://localhost:5000/advertisement', {
+        method:"POST",
+        headers:{
+            'content-type':'application/json'
+        },
+        body:JSON.stringify(advertisementProducts)
+      })
+      .then(res=> res.json())
+      .then(data =>{
+        toast.success('successfully added on server')
+        event.target.reset();
+      })
+      .catch(error=>{
+        toast.error(error.message);
+      })
 
-     
+    
      
 
     }
@@ -48,7 +63,7 @@ const findAmount=event=>{
                         
                  
                     
-                    <input  type="submit" className='btn btn-primary w-full my-5' value="Submit" />
+                    <input  type="submit" className='btn btn-primary w-full my-5' value="Add Advertisement" />
                   
                 </form>
             </div>

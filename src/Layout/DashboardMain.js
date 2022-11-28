@@ -33,7 +33,7 @@ const DashboardMain = () => {
                     <label htmlFor="dashBoard-drawer" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80  text-base-content">
                         {
-                            !isAdmin && <li><Link to='/dashboard'>My Orders</Link></li>
+                            !isAdmin && !seller && <li><Link to='/dashboard'>My Orders</Link></li>
                         }
 
 
