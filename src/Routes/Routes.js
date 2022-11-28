@@ -4,6 +4,9 @@ import AllBuyer from "../Component/DashBoard/AllBuyer";
 import AllSeller from "../Component/DashBoard/AllSeller";
 import MyOrders from "../Component/DashBoard/MyOrders";
 import MyProducts from "../Component/DashBoard/MyProducts";
+import Payment from "../Component/DashBoard/Payment";
+import PaymentForm from "../Component/DashBoard/PaymentForm";
+import ReportProduct from "../Component/DashBoard/ReportProduct";
 import Footer from "../Component/Footer/Footer";
 import Audi from "../Component/Home/AllCars/Audi";
 import Bmw from "../Component/Home/AllCars/Bmw";
@@ -96,6 +99,17 @@ export const router=createBrowserRouter([
               
                 element:<MyProducts/>
             },
+
+            // {
+            //     path:'/dashboard/paymentForm/:id',
+            //     loader:({params})=> fetch(`http://localhost:5000/bookings/${params.id}`),
+            //     element:<Payment></Payment>
+            // }
+
+            {
+                path:'/dashboard/reportProduct',
+                element:<ReportProduct></ReportProduct>
+            }
             
         ]
     }

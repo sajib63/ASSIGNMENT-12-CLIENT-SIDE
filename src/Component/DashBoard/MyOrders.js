@@ -1,15 +1,21 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../UserContex/UseContext';
 import { Loader } from '../Shared/Loader';
 
 const MyOrders = () => {
-const {user}=useContext(AuthContext)
+    const { user } = useContext(AuthContext)
+    
+
     const { data: products = [], isLoading } = useQuery({
         queryKey: ['getBooking', user?.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/getBooking?email=${user?.email}`)
+            const res = await fetch(`http://localhost:5000/getBooking?email=${user?.email}`,{
+                headers:{
+                    authorization: `bearer ${localStorage.getItem('token')}`
+                }
+            })
             const data = await res.json();
             return data;
         }
@@ -18,6 +24,10 @@ const {user}=useContext(AuthContext)
     if(isLoading){
         return <Loader></Loader>
     }
+
+ 
+
+
     return (
         <div className='my-8'>
             <div className="overflow-x-auto ">
@@ -35,6 +45,7 @@ const {user}=useContext(AuthContext)
                     <tbody>
 
                         {
+                            products.length &&
                             products?.map((product, i) => <tr>
                                 <th>{i + 1}</th>
                                 <td>
@@ -49,22 +60,24 @@ const {user}=useContext(AuthContext)
                                 }</td>
                                 <td>{product?.sell_price
                                 }</td>
-                                 <td>
-                                        {
-                                            product?.sell_price
-                                            && !product?.paid && <Link
-                                            to={`/dashboard/payment/${product._id}`}
-                                            >
+                                <td>
+                                    {
+                                        product?.sell_price
+                                        && !product?.paid && <Link
+                                            to={`/dashboard/paymentForm/${product._id}`}
+                                        >
                                             <button className='btn btn-primary btn-sm'>Pay</button>
-                                            </Link>
+                                        </Link>
 
-                                        }
-                                        {
-                                            product?.sell_price
-                                            && product?.paid && <span className='text-primary'>Paid</span>
+                                    }
+                                    {
+                                        product?.sell_price
+                                        && product?.paid && <span className='text-primary'>Paid</span>
 
-                                        }
-                                    </td>
+                                    }
+                                </td>
+
+                               
                             </tr>)
                         }
 

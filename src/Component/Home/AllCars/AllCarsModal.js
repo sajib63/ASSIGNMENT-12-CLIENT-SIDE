@@ -70,7 +70,7 @@ const AllCarsModal = ({ modalData }) => {
 
                         <input type="text" name='meeting' placeholder="Type your meeting location" className="input input-bordered input-black w-full" />
                         <br />
-                        <input className='btn btn-accent w-full' type="submit" value="Submit" />
+                        <input className='btn  w-full btn-primary' type="submit" value="Submit" />
 
                     </form>
                 </div>

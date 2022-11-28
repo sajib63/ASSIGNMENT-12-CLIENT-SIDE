@@ -38,7 +38,7 @@ const DashboardMain = () => {
 
 
                         {
-                            seller && <>
+                            seller && !isAdmin && <>
 
                                 <li><Link to='/dashboard/addProduct'>Add Product</Link></li>
                                 <li><Link to='/dashboard/myProduct'>My Products</Link></li>
@@ -54,6 +54,7 @@ const DashboardMain = () => {
                             isAdmin && <>
                                 <li><Link to='/dashboard/allSeller'>All Seller</Link></li>
                                 <li><Link to='/dashboard/allBuyers'>All Buyers</Link></li>
+                                <li><Link to='/dashboard/reportProduct'>Report Product</Link></li>
 
                             </>
                         }

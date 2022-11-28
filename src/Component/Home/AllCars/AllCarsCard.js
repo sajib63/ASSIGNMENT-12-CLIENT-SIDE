@@ -2,7 +2,7 @@ import React from 'react';
 import { FaCheck } from "react-icons/fa";
 
 
-const AllCarsCard = ({ cars , setModalData}) => {
+const AllCarsCard = ({ cars , setModalData, setReport}) => {
 
 
     const { purchase_Price, sell_price, picture, age, time, seller_name, product_name, phone, address , verification} = cars;
@@ -29,7 +29,7 @@ const AllCarsCard = ({ cars , setModalData}) => {
                     <p >Phone: {phone}</p>
                     <p >Post: {time}</p>
                     <div className="card-actions justify-between">
-                        <button className='btn bg-blue-600 border-0 hover:text-red-700'>Report</button>
+                        <label  htmlFor="report-modal" onClick={()=>setReport(cars)} className='btn bg-blue-600 border-0 hover:text-red-700'>Report</label>
 
                       
                         <label onClick={()=>setModalData(cars)} htmlFor="allCarsModal" className='btn bg-primary'>Book now</label>

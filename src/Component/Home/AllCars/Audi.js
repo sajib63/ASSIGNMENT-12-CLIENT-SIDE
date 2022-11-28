@@ -3,9 +3,11 @@ import React, {  useState } from 'react';
 import { Loader } from '../../Shared/Loader';
 import AllCarsCard from './AllCarsCard';
 import AllCarsModal from './AllCarsModal';
+import ReportModal from './ReportModal';
 
 const Audi = () => {
  const [modalData, setModalData]=useState('')
+ const [report, setReport]=useState('')
 
     const {data: audiCars=[], isLoading}=useQuery({
         queryKey:['hyundai'],
@@ -26,11 +28,17 @@ const Audi = () => {
 
             <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {
-                audiCars?.map(cars=> <AllCarsCard key={cars._id} cars={cars} setModalData={setModalData}></AllCarsCard>)
+                audiCars?.map(cars=> <AllCarsCard
+                     key={cars._id}
+                      cars={cars}
+                       setModalData={setModalData}
+                       setReport={setReport}
+                       ></AllCarsCard>)
             }
            </div>
 
            <AllCarsModal modalData={modalData}></AllCarsModal>
+           <ReportModal report={report}></ReportModal>
         </div>
     );
 };
