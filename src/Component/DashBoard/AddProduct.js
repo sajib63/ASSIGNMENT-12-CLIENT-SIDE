@@ -82,14 +82,14 @@ const AddProduct = () => {
                         form.reset();
                     })
                     .catch(error => {
-                        console.log(error);
+                        toast.error(error.message);
                     })
 
 
 
             })
             .catch(error => {
-                console.log(error);
+                toast.error(error.message);
             })
 
 
@@ -137,7 +137,13 @@ const AddProduct = () => {
                                 <span className="label-text">Seller Verification</span>
                             </label>
                             {
-                                sellers?.map(seller => <input type="verification" required name='verification' value={seller?.verification} disabled placeholder="Seller Email" className="input input-sm input-bordered input-primary" />)
+                                sellers?.map(seller =>
+                                    seller?.verification? 
+                                     <input type="verification" required name='verification' value={seller?.verification} disabled placeholder="Seller Email" className="input input-sm input-bordered input-primary" />
+                                     :
+                                     <input type="verification" required name='verification' value="unverified" disabled placeholder="Seller Email" className="input input-sm input-bordered input-primary" />
+                                     
+                                     )
                             }
                         </div>
 

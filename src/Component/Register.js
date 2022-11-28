@@ -50,7 +50,7 @@ const Register = () => {
 
                     })
                     .catch(error => {
-                        console.log(error);
+                        toast.error(error.message);
                     })
 
 
@@ -63,14 +63,14 @@ const Register = () => {
     const googleLoginUser = () => {
         googleLogin()
             .then(data => {
-                console.log(data);
+               
                 setUserEmail(data.user.email)
                 saveUser(data.user.photoURL
                     ,data.user.displayName, data.user.email)
                 toast.success('successfully created user')
             })
             .catch(error => {
-                console.log(error);
+                toast.error(error.message);
             })
     }
 
@@ -89,7 +89,7 @@ const Register = () => {
             .then(res => res.json())
             .then(data => {
 
-                console.log(data);
+               
 
             })
             .catch(error => {
@@ -135,8 +135,8 @@ const Register = () => {
 
                             </label>
                             <select name='select' className="select select-bordered">
-                                <option>Seller</option>
                                 <option>Buyer</option>
+                                <option>Seller</option>
 
                             </select>
 

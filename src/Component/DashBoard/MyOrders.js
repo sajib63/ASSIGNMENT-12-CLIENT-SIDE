@@ -12,7 +12,7 @@ const MyOrders = () => {
             return data;
         }
     })
-console.log(products);
+
     return (
         <div className='my-8'>
             <div className="overflow-x-auto ">

@@ -24,7 +24,7 @@ const Login = () => {
         const password=form.password.value;
         loginUser(email, password)
         .then(result=>{
-            console.log(result.user);
+        
            toast.success('successfully login user')
            setUserEmail(email)
            form.reset()
@@ -43,7 +43,7 @@ const Login = () => {
             toast.success('successfully created user')
         })
         .catch(error=>{
-            console.log(error);
+            toast.error(error.message);
         })
     }
     return (

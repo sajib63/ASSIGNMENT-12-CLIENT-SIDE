@@ -30,10 +30,10 @@ const MyProducts = () => {
                 .then(data => {
                     toast.success('successfully deleted')
                     refetch();
-                    console.log(data);
+                   
                 })
                 .catch(error => {
-                    console.log(error);
+                    toast.error(error.message);
                 })
         }
 

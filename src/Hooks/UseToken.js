@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import toast from "react-hot-toast"
 
 const UseToken=email=>{
     const [token, setToken]=useState('')
@@ -12,7 +13,7 @@ const UseToken=email=>{
                }
             })
             .catch(error=>{
-                console.log(error);
+                toast.error(error.message);
             })
         }
     },[email])
