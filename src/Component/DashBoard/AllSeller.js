@@ -9,7 +9,7 @@ const AllSeller = () => {
     const { data: sellers = [], isLoading, refetch } = useQuery({
         queryKey: ['sellers'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/sellers',{
+            const res = await fetch('https://y-sajib63.vercel.app/sellers',{
                 headers:{
                     authorization: `bearer ${localStorage.getItem('token')}`
                 }
@@ -22,7 +22,7 @@ const AllSeller = () => {
     const deleteSeller = sellerData => {
         const agree = window.confirm(`are you sure to delete ${sellerData.name}`)
         if (agree) {
-            fetch(`http://localhost:5000/allSeller/${sellerData._id}`, {
+            fetch(`https://y-sajib63.vercel.app/allSeller/${sellerData._id}`, {
                 method: "DELETE"
                
             })
@@ -41,7 +41,7 @@ const AllSeller = () => {
 
     const verifySeller=users=>{
 
-        fetch(`http://localhost:5000/allSeller/${users._id}`, {
+        fetch(`https://y-sajib63.vercel.app/allSeller/${users._id}`, {
             method: "PUT"
         })
             .then(res => res.json())

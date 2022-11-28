@@ -1,11 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
+import Blog from "../Component/Blog";
 import AddProduct from "../Component/DashBoard/AddProduct";
 import AllBuyer from "../Component/DashBoard/AllBuyer";
 import AllSeller from "../Component/DashBoard/AllSeller";
 import MyOrders from "../Component/DashBoard/MyOrders";
 import MyProducts from "../Component/DashBoard/MyProducts";
-import Payment from "../Component/DashBoard/Payment";
-import PaymentForm from "../Component/DashBoard/PaymentForm";
 import ReportProduct from "../Component/DashBoard/ReportProduct";
 import Footer from "../Component/Footer/Footer";
 import Audi from "../Component/Home/AllCars/Audi";
@@ -19,6 +18,7 @@ import Login from "../Component/Login";
 import Navbar from "../Component/Navbar/Navbar";
 import Register from "../Component/Register";
 import PrivateRoute from "../Component/Shared/PrivateRoute";
+import Error from "../Error";
 import DashboardMain from "../Layout/DashboardMain";
 import Main from "../Layout/Main";
 
@@ -26,6 +26,7 @@ export const router=createBrowserRouter([
     {
         path:'/',
         element:<Main></Main>,
+    errorElement:<Error></Error>,
         children:[
             {
                 path:'/',
@@ -71,10 +72,15 @@ export const router=createBrowserRouter([
                 path:'/register',
                 element:<Register></Register>
             },
+            {
+                path:'/blog',
+                element:<Blog></Blog>
+            },
         ]
     },
     {
         path:'/dashboard',
+      
         element:<PrivateRoute><DashboardMain/></PrivateRoute>,
         children:[
           
@@ -100,11 +106,7 @@ export const router=createBrowserRouter([
                 element:<MyProducts/>
             },
 
-            // {
-            //     path:'/dashboard/paymentForm/:id',
-            //     loader:({params})=> fetch(`http://localhost:5000/bookings/${params.id}`),
-            //     element:<Payment></Payment>
-            // }
+           
 
             {
                 path:'/dashboard/reportProduct',

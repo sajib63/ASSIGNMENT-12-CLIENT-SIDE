@@ -20,7 +20,7 @@ const ReportModal = ({ report }) => {
             message
 
         }
-        fetch('http://localhost:5000/report', {
+        fetch('https://y-sajib63.vercel.app/report', {
             method:"POST",
             headers:{
                 'content-type':'application/json'

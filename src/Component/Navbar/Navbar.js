@@ -8,8 +8,8 @@ const Navbar = () => {
 
     const navItems = <>
         <li><Link to='/' className=' font-semibold  hover:bg-primary rounded hover:text-white '>Home</Link></li>
-        <li><Link to='/' className=' font-semibold  hover:bg-primary rounded hover:text-white '>About</Link></li>
-        <li><Link to='/' className=' font-semibold  hover:bg-primary rounded hover:text-white '>Blog</Link></li>
+        
+        <li><Link to='/blog' className=' font-semibold  hover:bg-primary rounded hover:text-white '>Blog</Link></li>
 
         {
             user?.uid && <>

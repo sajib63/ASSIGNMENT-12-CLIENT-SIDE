@@ -19,7 +19,7 @@ const AdvertisementCard = ({ product }) => {
                         />
                       
 
-                        <h1 className='-mt-10 text-white text-2xl font-semibold ml-3'>{product_name}  <span> ${parseInt(sell_price%100)}% Discount</span></h1>
+                        <h1 className='-mt-10 text-white text-sm font-semibold ml-3'>{product_name}  <span> ${parseInt(sell_price%100)}% Dis</span></h1>
 
                        
                     </div>

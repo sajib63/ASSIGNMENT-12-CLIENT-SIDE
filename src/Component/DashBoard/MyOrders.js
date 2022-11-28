@@ -11,7 +11,7 @@ const MyOrders = () => {
     const { data: products = [], isLoading } = useQuery({
         queryKey: ['getBooking', user?.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/getBooking?email=${user?.email}`,{
+            const res = await fetch(`https://y-sajib63.vercel.app/getBooking?email=${user?.email}`,{
                 headers:{
                     authorization: `bearer ${localStorage.getItem('token')}`
                 }

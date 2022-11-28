@@ -12,7 +12,7 @@ const Lamborghini = () => {
     const {data: lamborghiniCars=[], isLoading}=useQuery({
         queryKey:['lamborghini'],
         queryFn: async ()=>{
-            const res= await fetch('http://localhost:5000/lamborghini')
+            const res= await fetch('https://y-sajib63.vercel.app/lamborghini')
             const data =await res.json()
             return data
         }

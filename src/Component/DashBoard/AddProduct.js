@@ -13,7 +13,7 @@ const AddProduct = () => {
     const { data: sellers = [], isLoading } = useQuery({
         queryKey: ['sellers', user?.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/verifiedEmail?email=${user?.email}`)
+            const res = await fetch(`https://y-sajib63.vercel.app/verifiedEmail?email=${user?.email}`)
             const data = await res.json()
             return data
         }
@@ -68,7 +68,7 @@ const AddProduct = () => {
                     time: dateTime
                 }
 
-                fetch('http://localhost:5000/addProduct', {
+                fetch('https://y-sajib63.vercel.app/addProduct', {
                     method: "POST",
                     headers: {
                         'content-type': 'application/json'

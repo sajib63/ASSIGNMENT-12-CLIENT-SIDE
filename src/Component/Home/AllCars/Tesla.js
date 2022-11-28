@@ -12,7 +12,7 @@ const Tesla = () => {
     const {data:teslaCars=[], isLoading}=useQuery({
         queryKey:['tesla'],
         queryFn: async ()=>{
-            const res= await fetch('http://localhost:5000/tesla')
+            const res= await fetch('https://y-sajib63.vercel.app/tesla')
             const data = await res.json()
             return data
         }

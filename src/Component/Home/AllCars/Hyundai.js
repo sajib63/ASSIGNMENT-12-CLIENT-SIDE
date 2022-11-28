@@ -12,7 +12,7 @@ const Hyundai = () => {
     const {data: hyundaiCars=[], isLoading}=useQuery({
         queryKey:['hyundai'],
         queryFn: async ()=>{
-            const res=await fetch('http://localhost:5000/hyundai')
+            const res=await fetch('https://y-sajib63.vercel.app/hyundai')
             const data =await res.json()
             return data
         }

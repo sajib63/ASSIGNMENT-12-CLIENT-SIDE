@@ -7,7 +7,7 @@ const ReportProduct = () => {
     const { data: reportData = [], isLoading } = useQuery({
         queryKey: ['reportProduct'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/reportProduct')
+            const res = await fetch('https://y-sajib63.vercel.app/reportProduct')
             const data = await res.json();
             return data
         }

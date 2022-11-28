@@ -13,7 +13,7 @@ const MyProducts = () => {
     const { data: myProduct = [], isLoading, refetch } = useQuery({
         queryKey: ['myProduct', user?.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/myProducts?email=${user?.email}`,{
+            const res = await fetch(`https://y-sajib63.vercel.app/myProducts?email=${user?.email}`,{
                 headers:{
                     authorization: `bearer ${localStorage.getItem('token')}`
                 }
@@ -27,7 +27,7 @@ const MyProducts = () => {
     const deleteButton = products => {
         const agree = window.confirm(`are you sure to delete ${products.product_name}`)
         if (agree) {
-            fetch(`http://localhost:5000/deleteMyProduct/${products._id}`, {
+            fetch(`https://y-sajib63.vercel.app/deleteMyProduct/${products._id}`, {
                 method: "DELETE"
             })
                 .then(res => res.json())

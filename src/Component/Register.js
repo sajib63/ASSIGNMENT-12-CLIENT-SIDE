@@ -83,7 +83,7 @@ const Register = () => {
         const user = {
             imageUrl, name, email, position
         };
-        fetch('http://localhost:5000/position', {
+        fetch('https://y-sajib63.vercel.app/position', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -11,7 +11,7 @@ const [amount, setAmount]=useState('')
       const advertisementProducts={
         purchase_Price, sell_price, picture, age, time, seller_name, product_name, phone, address, verification, amount
       }
-      fetch('http://localhost:5000/advertisement', {
+      fetch('https://y-sajib63.vercel.app/advertisement', {
         method:"POST",
         headers:{
             'content-type':'application/json'

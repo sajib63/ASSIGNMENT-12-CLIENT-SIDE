@@ -18,7 +18,7 @@ const PaymentForm = ({paymentData}) => {
 
     useEffect(() => {
 
-        fetch("http://localhost:5000/create-payment-intent", {
+        fetch("https://y-sajib63.vercel.app/create-payment-intent", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -90,7 +90,7 @@ const PaymentForm = ({paymentData}) => {
 
             }
 
-            fetch('http://localhost:5000/payments', {
+            fetch('https://y-sajib63.vercel.app/payments', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',
