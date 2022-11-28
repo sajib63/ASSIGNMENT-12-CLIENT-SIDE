@@ -12,9 +12,15 @@ const Navbar = () => {
         <li><Link to='/' className=' font-semibold  hover:bg-primary rounded hover:text-white '>Blog</Link></li>
 
         {
-            user?.uid &&  <li><Link htmlFor="dashBoard-drawer" to='/dashboard' className=' font-semibold  hover:bg-primary rounded hover:text-white '>DashBoard</Link></li>
+            user?.uid && <>
+
+
+
+                <li><Link htmlFor="dashBoard-drawer" to='/dashboard' className=' font-semibold  hover:bg-primary rounded hover:text-white '>DashBoard</Link></li>
+                <li><Link   className=' font-semibold  bg-primary rounded text-white '>{user?.email}</Link></li>
+            </>
         }
-       
+
 
 
 
@@ -46,7 +52,6 @@ const Navbar = () => {
                     user?.uid ? <>
 
 
-                        <Link className='p-3 mx-2 font-semibold  bg-primary rounded text-white '>{user?.email}</Link>
 
                         <Link onClick={logout} className='p-3  font-semibold bg-primary rounded text-white '>Logout</Link>
                     </>
