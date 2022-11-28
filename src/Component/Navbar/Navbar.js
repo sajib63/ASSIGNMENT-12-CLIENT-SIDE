@@ -10,7 +10,11 @@ const Navbar = () => {
         <li><Link to='/' className=' font-semibold  hover:bg-primary rounded hover:text-white '>Home</Link></li>
         <li><Link to='/' className=' font-semibold  hover:bg-primary rounded hover:text-white '>About</Link></li>
         <li><Link to='/' className=' font-semibold  hover:bg-primary rounded hover:text-white '>Blog</Link></li>
-        <li><Link htmlFor="dashBoard-drawer" to='/dashboard' className=' font-semibold  hover:bg-primary rounded hover:text-white '>DashBoard</Link></li>
+
+        {
+            user?.uid &&  <li><Link htmlFor="dashBoard-drawer" to='/dashboard' className=' font-semibold  hover:bg-primary rounded hover:text-white '>DashBoard</Link></li>
+        }
+       
 
 
 

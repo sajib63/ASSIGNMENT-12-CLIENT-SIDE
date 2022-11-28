@@ -38,27 +38,27 @@ export const router=createBrowserRouter([
             },
             {
                 path:'/tesla',
-                element:<Tesla></Tesla>
+                element:<PrivateRoute><Tesla></Tesla></PrivateRoute>
             },
             {
                 path:'/audi',
-                element:<Audi></Audi>
+                element:<PrivateRoute><Audi></Audi></PrivateRoute>
             },
             {
                 path:'/bmw',
-                element:<Bmw></Bmw>
+                element:<PrivateRoute><Bmw></Bmw></PrivateRoute>
             },
             {
                 path:'/hyundai',
-                element:<Hyundai></Hyundai>
+                element:<PrivateRoute><Hyundai></Hyundai></PrivateRoute>
             },
             {
                 path:'/mercedes',
-                element:<Mercedes></Mercedes>
+                element:<PrivateRoute><Mercedes></Mercedes></PrivateRoute>
             },
             {
                 path:'/lamborghini',
-                element:<Lamborghini></Lamborghini>
+                element:<PrivateRoute><Lamborghini></Lamborghini></PrivateRoute>
             },
             {
                 path:'/login',
@@ -72,7 +72,7 @@ export const router=createBrowserRouter([
     },
     {
         path:'/dashboard',
-        element:<DashboardMain/>,
+        element:<PrivateRoute><DashboardMain/></PrivateRoute>,
         children:[
           
             {

@@ -1,18 +1,23 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../UserContex/UseContext';
+import { Loader } from '../Shared/Loader';
 
 const MyOrders = () => {
-
+const {user}=useContext(AuthContext)
     const { data: products = [], isLoading } = useQuery({
-        queryKey: ['getBooking'],
+        queryKey: ['getBooking', user?.email],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/getBooking')
+            const res = await fetch(`http://localhost:5000/getBooking?email=${user?.email}`)
             const data = await res.json();
             return data;
         }
     })
 
+    if(isLoading){
+        return <Loader></Loader>
+    }
     return (
         <div className='my-8'>
             <div className="overflow-x-auto ">

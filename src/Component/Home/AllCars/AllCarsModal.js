@@ -11,12 +11,15 @@ const AllCarsModal = ({ modalData }) => {
         event.preventDefault();
         const number = event.target.number.value;
         const meetingAddress = event.target.meeting.value;
+        const email = event.target.email.value;
+        
         const productInfo = {
             purchase_Price,
             sell_price,
             picture,
             age,
             time,
+            email,
             seller_name,
             product_name,
             phone,
@@ -60,7 +63,9 @@ const AllCarsModal = ({ modalData }) => {
 
                         <input type="text" name='name' disabled defaultValue={user?.displayName} className="input input-bordered input-black w-full" />
                         <input type="email" name='email' disabled defaultValue={user?.email} className="input input-bordered input-black w-full" />
-                        <input type="email" name='email' disabled defaultValue={sell_price} className="input input-bordered input-black w-full" />
+
+                        <input type="email" name='price' disabled defaultValue={sell_price} className="input input-bordered input-black w-full" />
+
                         <input type="number" name='number' placeholder="PhoneNumber" className="input input-bordered input-black w-full" />
 
                         <input type="text" name='meeting' placeholder="Type your meeting location" className="input input-bordered input-black w-full" />

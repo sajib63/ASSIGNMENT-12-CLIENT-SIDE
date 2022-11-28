@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import loginImage from '../Assets/animation/login.gif'
 
@@ -10,6 +10,8 @@ import UseToken from '../Hooks/UseToken';
 const Login = () => {
     const {loginUser,googleLogin}=useContext(AuthContext)
     const navigate=useNavigate();
+    const location=useLocation();
+    const from = location.state?.from?.pathname || "/";
     const [userEmail, setUserEmail]=useState('')
     const [token]=UseToken(userEmail);
 
@@ -27,6 +29,7 @@ const Login = () => {
         
            toast.success('successfully login user')
            setUserEmail(email)
+           navigate(from, { replace: true });
            form.reset()
         })
         .catch(error=>{
@@ -41,6 +44,7 @@ const Login = () => {
         .then(data=>{
           setUserEmail(data.user.email)
             toast.success('successfully created user')
+            navigate(from, { replace: true });
         })
         .catch(error=>{
             toast.error(error.message);

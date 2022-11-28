@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import register from '../Assets/animation/register.gif'
 import { AuthContext } from '../UserContex/UseContext';
 import toast from 'react-hot-toast';
@@ -8,11 +8,14 @@ import UseToken from '../Hooks/UseToken';
 const Register = () => {
     const { createUser, updateUserProfile, googleLogin } = useContext(AuthContext)
     const navigate = useNavigate();
+
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
     const [userEmail, setUserEmail] = useState('');
     const [token] = UseToken(userEmail)
 
     if (token) {
-        navigate('/')
+        navigate(from, { replace: true });
     }
 
     const registerSubmit = event => {
@@ -44,7 +47,7 @@ const Register = () => {
                     .then(result => {
                         updateUserProfile(name, imageUrl)
                         toast.success('successfully created user')
-                        saveUser(imageUrl,name, email, position )
+                        saveUser(imageUrl, name, email, position)
                         setUserEmail(email)
                         form.reset();
 
@@ -63,10 +66,11 @@ const Register = () => {
     const googleLoginUser = () => {
         googleLogin()
             .then(data => {
-               
+
                 setUserEmail(data.user.email)
                 saveUser(data.user.photoURL
-                    ,data.user.displayName, data.user.email)
+                    , data.user.displayName, data.user.email)
+                 
                 toast.success('successfully created user')
             })
             .catch(error => {
@@ -75,9 +79,9 @@ const Register = () => {
     }
 
 
-    const saveUser = ( imageUrl,name, email, position ) => {
+    const saveUser = (imageUrl, name, email, position) => {
         const user = {
-            imageUrl,   name, email, position 
+            imageUrl, name, email, position
         };
         fetch('http://localhost:5000/position', {
             method: 'POST',
@@ -89,7 +93,7 @@ const Register = () => {
             .then(res => res.json())
             .then(data => {
 
-               
+                navigate(from, { replace: true });
 
             })
             .catch(error => {
