@@ -4,3 +4,6 @@
 **This is a E-Commerce Website
 
 *** live link: https://assignment-12-5f7d1.web.app/
+
+** Admin Email: sajibahmed7315@gmail.com
+** Admin Password: 123456
